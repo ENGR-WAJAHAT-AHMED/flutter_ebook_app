@@ -10,20 +10,30 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   List popularBook = [];
+  late ScrollController _scrollController;
+  late TabController _tabController;
+
   ReadData() async {
-   await DefaultAssetBundle.of(context).loadString("json/popularBooks.json").then((s){
+    await DefaultAssetBundle.of(context)
+        .loadString("json/popularBooks.json")
+        .then((s) {
       setState(() {
         popularBook = json.decode(s);
       });
     });
   }
+
   @override
-  void initState(){
+  void initState() {
     super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+    _scrollController = ScrollController();
     ReadData();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -100,7 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 180,
                       child: PageView.builder(
                           controller: PageController(viewportFraction: 0.8),
-                          itemCount: popularBook==null?0:popularBook.length,
+                          itemCount:
+                              popularBook == null ? 0 : popularBook.length,
                           itemBuilder: (_, i) {
                             return Container(
                               height: 180,
@@ -120,6 +131,123 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+            Expanded(
+                child: NestedScrollView(
+              controller: _scrollController,
+              headerSliverBuilder: (BuildContext context, bool isScroll) {
+                return [
+                  SliverAppBar(
+                    pinned: true,
+                    bottom: PreferredSize(
+                        child: Container(
+                          margin: EdgeInsets.all(8),
+                          child: TabBar(
+                            indicatorPadding: const EdgeInsets.all(0),
+                            indicatorSize: TabBarIndicatorSize.label,
+                            labelPadding: const EdgeInsets.all(0),
+                            controller: _tabController,
+                            isScrollable: true,
+                            indicator: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    blurRadius: 7,
+                                    offset: Offset(0, 0),
+                                  )
+                                ]),
+                            tabs: [
+                              Container(
+                                width: 120,
+                                height: 50,
+                                child: Text(
+                                  'New',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        blurRadius: 7,
+                                        offset: Offset(0, 0),
+                                      )
+                                    ]),
+                              ),
+                              Container(
+                                width: 120,
+                                height: 50,
+                                child: Text(
+                                  'New',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        blurRadius: 7,
+                                        offset: Offset(0, 0),
+                                      )
+                                    ]),
+                              ),
+                              Container(
+                                width: 120,
+                                height: 50,
+                                child: Text(
+                                  'New',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        blurRadius: 7,
+                                        offset: Offset(0, 0),
+                                      )
+                                    ]),
+                              ),
+                            ],
+                          ),
+                        ),
+                        preferredSize: Size.fromHeight(50)),
+                  )
+                ];
+              },
+              body: TabBarView(
+                controller: _tabController,
+                  children: [
+                    Material(
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.grey,
+                        ),
+                        title: Text('Content'),
+                      ),
+
+                    ),
+                    Material(
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.grey,
+                        ),
+                        title: Text('Content'),
+                      ),
+
+                    ),
+                    Material(
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.grey,
+                        ),
+                        title: Text('Content'),
+                      ),
+
+                    ),
+
+              ]),
+            )),
           ],
         ),
       )),
