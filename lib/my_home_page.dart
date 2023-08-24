@@ -141,67 +141,88 @@ class _MyHomePageState extends State<MyHomePage>
                     pinned: true,
                     backgroundColor: AppColor.silverBackground,
                     bottom: PreferredSize(
-                        preferredSize: Size.fromHeight(50),
-                        child: Container(
-                          margin: EdgeInsets.only(bottom: 20,left: 10),
-                          child: TabBar(
-                            indicatorPadding: const EdgeInsets.all(0),
-                            indicatorSize: TabBarIndicatorSize.label,
-                            labelPadding: const EdgeInsets.only(right: 10),
-                            controller: _tabController,
-                            isScrollable: true,
-                            indicator: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.2),
-                                    blurRadius: 7,
-                                    offset: Offset(0, 0),
-                                  )
-                                ]),
-                            tabs: [
-                              AppTabs(color: AppColor.menu1Color, text: 'New'),
-                              AppTabs(color: AppColor.menu2Color, text: 'Popular'),
-                              AppTabs(color: AppColor.menu3Color, text: 'Trending'),
-
-                            ],
-                          ),
+                      preferredSize: Size.fromHeight(50),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 20, left: 10),
+                        child: TabBar(
+                          indicatorPadding: const EdgeInsets.all(0),
+                          indicatorSize: TabBarIndicatorSize.label,
+                          labelPadding: const EdgeInsets.only(right: 10),
+                          controller: _tabController,
+                          isScrollable: true,
+                          indicator: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  blurRadius: 7,
+                                  offset: Offset(0, 0),
+                                )
+                              ]),
+                          tabs: [
+                            AppTabs(color: AppColor.menu1Color, text: 'New'),
+                            AppTabs(
+                                color: AppColor.menu2Color, text: 'Popular'),
+                            AppTabs(
+                                color: AppColor.menu3Color, text: 'Trending'),
+                          ],
                         ),
+                      ),
                     ),
                   )
                 ];
               },
-              body: TabBarView(
-                controller: _tabController,
-                  children: [
-                    Material(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.grey,
+              body: TabBarView(controller: _tabController, children: [
+                ListView.builder(itemBuilder: (_, i) {
+                  return Container(
+                    margin: EdgeInsets.only(
+                        right: 20, left: 20, top: 10, bottom: 10),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppColor.tabVarViewColor,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 2,
+                              offset: Offset(0, 0),
+                              color: Colors.grey.withOpacity(0.2),
+                            )
+                          ]),
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 90,
+                              width: 90,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/covers/b1.jpg')
+                                  )),
+                            )
+                          ],
                         ),
-                        title: Text('Content'),
                       ),
-
                     ),
-                    Material(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.grey,
-                        ),
-                        title: Text('Content'),
-                      ),
-
+                  );
+                }),
+                Material(
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.grey,
                     ),
-                    Material(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.grey,
-                        ),
-                        title: Text('Content'),
-                      ),
-
+                    title: Text('Content'),
+                  ),
+                ),
+                Material(
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.grey,
                     ),
-
+                    title: Text('Content'),
+                  ),
+                ),
               ]),
             )),
           ],
