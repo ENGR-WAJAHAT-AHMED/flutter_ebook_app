@@ -142,11 +142,11 @@ class _MyHomePageState extends State<MyHomePage>
                     bottom: PreferredSize(
                         preferredSize: Size.fromHeight(50),
                         child: Container(
-                          margin: EdgeInsets.all(8),
+                          margin: EdgeInsets.only(bottom: 20),
                           child: TabBar(
                             indicatorPadding: const EdgeInsets.all(0),
                             indicatorSize: TabBarIndicatorSize.label,
-                            labelPadding: const EdgeInsets.all(0),
+                            labelPadding: const EdgeInsets.only(right: 10),
                             controller: _tabController,
                             isScrollable: true,
                             indicator: BoxDecoration(
@@ -166,6 +166,7 @@ class _MyHomePageState extends State<MyHomePage>
                                   'New',
                                   style: TextStyle(color: Colors.white),
                                 ),
+                                alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: AppColor.menu1Color,
@@ -184,6 +185,7 @@ class _MyHomePageState extends State<MyHomePage>
                                   'New',
                                   style: TextStyle(color: Colors.white),
                                 ),
+                                alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: AppColor.menu2Color,
@@ -202,6 +204,7 @@ class _MyHomePageState extends State<MyHomePage>
                                   'New',
                                   style: TextStyle(color: Colors.white),
                                 ),
+                                alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: AppColor.menu3Color,
