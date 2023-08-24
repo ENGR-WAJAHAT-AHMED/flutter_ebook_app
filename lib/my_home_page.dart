@@ -138,7 +138,9 @@ class _MyHomePageState extends State<MyHomePage>
                 return [
                   SliverAppBar(
                     pinned: true,
+                    backgroundColor: Colors.white,
                     bottom: PreferredSize(
+                        preferredSize: Size.fromHeight(50),
                         child: Container(
                           margin: EdgeInsets.all(8),
                           child: TabBar(
@@ -166,6 +168,7 @@ class _MyHomePageState extends State<MyHomePage>
                                 ),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
+                                    color: AppColor.menu1Color,
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.3),
@@ -183,6 +186,7 @@ class _MyHomePageState extends State<MyHomePage>
                                 ),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
+                                    color: AppColor.menu2Color,
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.3),
@@ -200,6 +204,7 @@ class _MyHomePageState extends State<MyHomePage>
                                 ),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
+                                    color: AppColor.menu3Color,
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.3),
@@ -211,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage>
                             ],
                           ),
                         ),
-                        preferredSize: Size.fromHeight(50)),
+                    ),
                   )
                 ];
               },
