@@ -14,6 +14,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   List popularBook = [];
+  List books = [];
   late ScrollController _scrollController;
   late TabController _tabController;
 
@@ -25,7 +26,17 @@ class _MyHomePageState extends State<MyHomePage>
         popularBook = json.decode(s);
       });
     });
+    await DefaultAssetBundle.of(context)
+        .loadString("json/books.json")
+        .then((s) {
+      setState(() {
+        books = json.decode(s);
+      });
+    });
   }
+
+
+
 
   @override
   void initState() {
@@ -173,7 +184,9 @@ class _MyHomePageState extends State<MyHomePage>
                 ];
               },
               body: TabBarView(controller: _tabController, children: [
-                ListView.builder(itemBuilder: (_, i) {
+                ListView.builder(
+                  itemCount: books==null?0:books.length,
+                    itemBuilder: (_, i) {
                   return Container(
                     margin: EdgeInsets.only(
                         right: 20, left: 20, top: 10, bottom: 10),
@@ -198,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage>
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   image: DecorationImage(
-                                      image: AssetImage('assets/covers/b1.jpg')
+                                      image: AssetImage(books[i]["img"])
                                   )),
                             )
                           ],
