@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:ebook_app/app_colors.dart';
+import 'package:ebook_app/my_tabs.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -138,11 +139,11 @@ class _MyHomePageState extends State<MyHomePage>
                 return [
                   SliverAppBar(
                     pinned: true,
-                    backgroundColor: Colors.white,
+                    backgroundColor: AppColor.silverBackground,
                     bottom: PreferredSize(
                         preferredSize: Size.fromHeight(50),
                         child: Container(
-                          margin: EdgeInsets.only(bottom: 20),
+                          margin: EdgeInsets.only(bottom: 20,left: 10),
                           child: TabBar(
                             indicatorPadding: const EdgeInsets.all(0),
                             indicatorSize: TabBarIndicatorSize.label,
@@ -159,63 +160,10 @@ class _MyHomePageState extends State<MyHomePage>
                                   )
                                 ]),
                             tabs: [
-                              Container(
-                                width: 120,
-                                height: 50,
-                                child: Text(
-                                  'New',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: AppColor.menu1Color,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.3),
-                                        blurRadius: 7,
-                                        offset: Offset(0, 0),
-                                      )
-                                    ]),
-                              ),
-                              Container(
-                                width: 120,
-                                height: 50,
-                                child: Text(
-                                  'New',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: AppColor.menu2Color,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.3),
-                                        blurRadius: 7,
-                                        offset: Offset(0, 0),
-                                      )
-                                    ]),
-                              ),
-                              Container(
-                                width: 120,
-                                height: 50,
-                                child: Text(
-                                  'New',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: AppColor.menu3Color,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.3),
-                                        blurRadius: 7,
-                                        offset: Offset(0, 0),
-                                      )
-                                    ]),
-                              ),
+                              AppTabs(color: AppColor.menu1Color, text: 'New'),
+                              AppTabs(color: AppColor.menu2Color, text: 'Popular'),
+                              AppTabs(color: AppColor.menu3Color, text: 'Trending'),
+
                             ],
                           ),
                         ),
