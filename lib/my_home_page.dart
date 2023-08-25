@@ -35,9 +35,6 @@ class _MyHomePageState extends State<MyHomePage>
     });
   }
 
-
-
-
   @override
   void initState() {
     super.initState();
@@ -185,57 +182,174 @@ class _MyHomePageState extends State<MyHomePage>
               },
               body: TabBarView(controller: _tabController, children: [
                 ListView.builder(
-                  itemCount: books==null?0:books.length,
+                    itemCount: books == null ? 0 : books.length,
                     itemBuilder: (_, i) {
-                  return Container(
-                    margin: EdgeInsets.only(
-                        right: 20, left: 20, top: 10, bottom: 10),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: AppColor.tabVarViewColor,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 2,
-                              offset: Offset(0, 0),
-                              color: Colors.grey.withOpacity(0.2),
-                            )
-                          ]),
-                      child: Container(
-                        padding: EdgeInsets.all(8),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 90,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  image: DecorationImage(
-                                      image: AssetImage(books[i]["img"])
-                                  )),
-                            )
-                          ],
+                      return Container(
+                        margin: EdgeInsets.only(
+                            right: 20, left: 20, top: 10, bottom: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: AppColor.tabVarViewColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 2,
+                                  offset: Offset(0, 0),
+                                  color: Colors.grey.withOpacity(0.2),
+                                )
+                              ]),
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 90,
+                                  width: 90,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: AssetImage(books[i]["img"]))),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          color: AppColor.starColor,
+                                          size: 24,
+                                        ),
+                                        Text(
+                                          "1.5",
+                                          style: TextStyle(
+                                              color: Colors.deepOrangeAccent),
+                                        )
+                                      ],
+                                    ),
+                                    Text(
+                                      "IF YOU NEVER TRY YOU NEVER KNOW",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    Text(
+                                      "Robert michel",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w100),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      height: 20,
+                                      width: 70,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: Colors.cyan,
+                                      ),
+                                      child: Center(
+                                          child: Text(
+                                        "Love",
+                                        style: TextStyle(color: Colors.white),
+                                      )),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  );
-                }),
-                Material(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.grey,
-                    ),
-                    title: Text('Content'),
-                  ),
-                ),
-                Material(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.grey,
-                    ),
-                    title: Text('Content'),
-                  ),
-                ),
+                      );
+                    }),
+                ListView.builder(
+                    itemCount: books == null ? 0 : books.length,
+                    itemBuilder: (_, i) {
+                      return Container(
+                        margin: EdgeInsets.only(
+                            right: 20, left: 20, top: 10, bottom: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: AppColor.tabVarViewColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 2,
+                                  offset: Offset(0, 0),
+                                  color: Colors.grey.withOpacity(0.2),
+                                )
+                              ]),
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 90,
+                                  width: 90,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: AssetImage(books[i]["img"]))),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                ListView.builder(
+                    itemCount: books == null ? 0 : books.length,
+                    itemBuilder: (_, i) {
+                      return Container(
+                        margin: EdgeInsets.only(
+                            right: 20, left: 20, top: 10, bottom: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: AppColor.tabVarViewColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 2,
+                                  offset: Offset(0, 0),
+                                  color: Colors.grey.withOpacity(0.2),
+                                )
+                              ]),
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 90,
+                                  width: 90,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: AssetImage(books[i]["img"]))),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                // Material(
+                //   child: ListTile(
+                //     leading: CircleAvatar(
+                //       backgroundColor: Colors.grey,
+                //     ),
+                //     title: Text('Content'),
+                //   ),
+                // ),
+                // Material(
+                //   child: ListTile(
+                //     leading: CircleAvatar(
+                //       backgroundColor: Colors.grey,
+                //     ),
+                //     title: Text('Content'),
+                //   ),
+                // ),
               ]),
             )),
           ],

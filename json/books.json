@@ -1,26 +1,50 @@
 [
   {
+    "rating": "4.7",
+    "title": "IF YOU NEVER TRY YOU NEVER KNOW",
+    "text": "Alam",
     "img": "assets/covers/b1.jpg"
   },
   {
+    "rating": "4.3",
+    "title": "ALAWAY THING OUT OF THE BOX",
+    "text": "Afridi",
     "img": "assets/covers/b2.jpg"
   },
   {
+    "rating": "4.8",
+    "title": "WORK HARD DREAM BIG",
+    "text": "karim",
     "img": "assets/covers/b3.jpg"
   },
   {
+    "rating": "4.2",
+    "title": "YOU ONLY KNOW A GOOD SAILOR IN ROUGH SEAS",
+    "text": "feroz",
     "img": "assets/covers/b4.jpg"
   },
   {
+    "rating": "4.1",
+    "title": "COLLECT MOMENT NOT THINGS",
+    "text": "Azam",
     "img": "assets/covers/b5.jpg"
   },
   {
+    "rating": "4.9",
+    "title": "YOU WILL DO BIG",
+    "text": "Malik",
     "img": "assets/covers/b6.jpg"
   },
   {
+    "rating": "4.0",
+    "title": "SWEET DREAM ARE MADE OF THIS",
+    "text": "khan",
     "img": "assets/covers/b7.jpg"
   },
   {
-    "img": "assets/covers/b8.jpg"
+    "rating": "5.0",
+    "title": "WE RISE BY LIFTING OTHERS",
+    "text": "Ahmed",
+    "img": "assets/covers/b8.jpg",
   }
 ]
