@@ -1,17 +1,32 @@
 [
   {
+    "rating": "3.8",
+    "title": "SCHOOL TO LEARN READ",
+    "text": "Author",
     "img": "assets/images/one.jpg"
   },
   {
+    "rating": "4.0",
+    "title": "EVERYDAY IS A FRESH START",
+    "text": "Author",
     "img": "assets/images/two.jpg"
   },
   {
+    "rating": "4.3",
+    "title": "NEVER GIVEUP",
+    "text": "Author",
     "img": "assets/images/three.jpg"
   },
   {
+    "rating": "4.6",
+    "title": "LOVING YOURSELF IS THE GREATEST REVOLUTION",
+    "text": "Author",
     "img": "assets/images/four.jpg"
   },
   {
+    "rating": "3.9",
+    "title": "ENJOY THE LITTLE THING",
+    "text": "Author",
     "img": "assets/images/five.jpg"
   }
 ]

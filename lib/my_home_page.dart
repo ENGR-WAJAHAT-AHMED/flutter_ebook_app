@@ -309,7 +309,7 @@ class _MyHomePageState extends State<MyHomePage>
                       );
                     }),
                 ListView.builder(
-                    itemCount: books == null ? 0 : books.length,
+                    itemCount: popularBook == null ? 0 : popularBook.length,
                     itemBuilder: (_, i) {
                       return Container(
                         margin: EdgeInsets.only(
@@ -335,30 +335,72 @@ class _MyHomePageState extends State<MyHomePage>
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
-                                          image: AssetImage(books[i]["img"]))),
-                                )
+                                          image: AssetImage(popularBook[i]["img"]))),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          color: AppColor.starColor,
+                                          size: 24,
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text(
+                                          popularBook[i]["rating"],
+                                          style: TextStyle(
+                                              color: AppColor.menu2Color),
+                                        )
+                                      ],
+                                    ),
+                                    Text(
+                                      popularBook[i]["title"],
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: "Avenir",
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      popularBook[i]["text"],
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: AppColor.subTitleText,
+                                          fontFamily: "Avenir"),
+                                    ),
+                                    Container(
+                                      height: 20,
+                                      width: 65,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: AppColor.loveColor,
+                                      ),
+                                      child: Text(
+                                        "Trends",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.white,
+                                            fontFamily: "Avenir"
+                                        ),
+                                      ),
+                                      alignment: Alignment.center,
+
+                                    )
+                                  ],
+                                ),
                               ],
                             ),
                           ),
                         ),
                       );
                     }),
-                // Material(
-                //   child: ListTile(
-                //     leading: CircleAvatar(
-                //       backgroundColor: Colors.grey,
-                //     ),
-                //     title: Text('Content'),
-                //   ),
-                // ),
-                // Material(
-                //   child: ListTile(
-                //     leading: CircleAvatar(
-                //       backgroundColor: Colors.grey,
-                //     ),
-                //     title: Text('Content'),
-                //   ),
-                // ),
+
               ]),
             )),
           ],
