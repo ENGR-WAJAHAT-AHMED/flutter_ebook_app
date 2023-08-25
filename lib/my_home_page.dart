@@ -15,6 +15,7 @@ class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   List popularBook = [];
   List books = [];
+  List sequenceBooks = [];
   late ScrollController _scrollController;
   late TabController _tabController;
 
@@ -28,6 +29,13 @@ class _MyHomePageState extends State<MyHomePage>
     });
     await DefaultAssetBundle.of(context)
         .loadString("json/books.json")
+        .then((s) {
+      setState(() {
+        books = json.decode(s);
+      });
+    });
+    await DefaultAssetBundle.of(context)
+        .loadString("json/sequencebooks.json")
         .then((s) {
       setState(() {
         books = json.decode(s);
@@ -363,14 +371,14 @@ class _MyHomePageState extends State<MyHomePage>
                                     Text(
                                       popularBook[i]["title"],
                                       style: TextStyle(
-                                          fontSize: 16,
+                                          fontSize: 14,
                                           fontFamily: "Avenir",
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
                                       popularBook[i]["text"],
                                       style: TextStyle(
-                                          fontSize: 16,
+                                          fontSize: 12,
                                           color: AppColor.subTitleText,
                                           fontFamily: "Avenir"),
                                     ),
