@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage>
         .loadString("json/sequencebooks.json")
         .then((s) {
       setState(() {
-        books = json.decode(s);
+        sequenceBooks = json.decode(s);
       });
     });
   }
@@ -282,7 +282,7 @@ class _MyHomePageState extends State<MyHomePage>
                       );
                     }),
                 ListView.builder(
-                    itemCount: books == null ? 0 : books.length,
+                    itemCount: sequenceBooks == null ? 0 : sequenceBooks.length,
                     itemBuilder: (_, i) {
                       return Container(
                         margin: EdgeInsets.only(
@@ -308,8 +308,65 @@ class _MyHomePageState extends State<MyHomePage>
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
-                                          image: AssetImage(books[i]["img"]))),
-                                )
+                                          image: AssetImage(sequenceBooks[i]["img"]))),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          color: AppColor.starColor,
+                                          size: 24,
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text(
+                                          sequenceBooks[i]["rating"],
+                                          style: TextStyle(
+                                              color: AppColor.menu2Color),
+                                        )
+                                      ],
+                                    ),
+                                    Text(
+                                      sequenceBooks[i]["title"],
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontFamily: "Avenir",
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      sequenceBooks[i]["text"],
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: AppColor.subTitleText,
+                                          fontFamily: "Avenir"),
+                                    ),
+                                    Container(
+                                      height: 20,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: AppColor.loveColor,
+                                      ),
+                                      child: Text(
+                                        "popular",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.white,
+                                            fontFamily: "Avenir"
+                                        ),
+                                      ),
+                                      alignment: Alignment.center,
+
+                                    )
+                                  ],
+                                ),
                               ],
                             ),
                           ),
