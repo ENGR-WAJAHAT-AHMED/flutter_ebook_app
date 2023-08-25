@@ -223,38 +223,47 @@ class _MyHomePageState extends State<MyHomePage>
                                           color: AppColor.starColor,
                                           size: 24,
                                         ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
                                         Text(
-                                          "1.5",
+                                          books[i]["rating"],
                                           style: TextStyle(
-                                              color: Colors.deepOrangeAccent),
+                                              color: AppColor.menu2Color),
                                         )
                                       ],
                                     ),
                                     Text(
-                                      "IF YOU NEVER TRY YOU NEVER KNOW",
+                                      books[i]["title"],
                                       style: TextStyle(
                                           fontSize: 16,
-                                          fontWeight: FontWeight.w700),
+                                          fontFamily: "Avenir",
+                                          fontWeight: FontWeight.bold),
                                     ),
                                     Text(
-                                      "Robert michel",
+                                      books[i]["text"],
                                       style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w100),
+                                          fontSize: 16,
+                                          color: AppColor.subTitleText,
+                                          fontFamily: "Avenir"),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(top: 10),
                                       height: 20,
-                                      width: 70,
+                                      width: 65,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
-                                        color: Colors.cyan,
+                                        color: AppColor.loveColor,
                                       ),
-                                      child: Center(
                                           child: Text(
                                         "Love",
-                                        style: TextStyle(color: Colors.white),
-                                      )),
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.white,
+                                          fontFamily: "Avenir"
+                                        ),
+                                       ),
+                                        alignment: Alignment.center,
+
                                     )
                                   ],
                                 ),
