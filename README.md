@@ -1,4 +1,4 @@
-# eBook App
+# eBook App UI
 
 ## Description
 
